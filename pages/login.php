@@ -35,7 +35,7 @@
 <script>
 
 	$('#login').on('click', function() {
-        $("#login").attr("disabled", "disabled");
+        //$("#login").attr("disabled", "disabled");
 		var email = $('#email').val();
 		var password = $('#password').val();
 		if(email!="" && password!="" ){
@@ -52,15 +52,9 @@
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
 						location.href = "../pages/mainpage.php";	
-                        $("#login").removeAttr("disabled");
-                        $("#success").show();
-						$('#success').html('Registration successful !'); 
-                        console.log("deneme");						
 					}
 					else if(dataResult.statusCode==201){
-                        console.log("hata");
-						$("#error").show();
-						$('#error').html('Invalid EmailId or Password !');
+						alert('Invalid EmailId or Password');
 					}
 					
 				}

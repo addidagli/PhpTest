@@ -55,14 +55,7 @@
                 <label>Postal Code</label>
                 <input type="text" class="input"  id="postalcode" name="postalcode">
             </div> 
-            <div class="inputfield terms">
-                <label class="check">
-                    <input type="checkbox" name="checked" value="ok">
-                    <span class="checkmark"></span>
-                </label>
-                <p>Agreed to terms and conditions</p>
-            </div> 
-            <div id="warning"></div>
+          
             <div class="inputfield">
                 <input type="submit" value="Register" class="btn" id="register" name="submit">
             </div>
@@ -82,7 +75,7 @@
 		var address = $('#address').val();
 		var postalcode = $('#postalcode').val();
 		
-		if(firstname!="" && lastname!="" && password!="" && confirmpassword!=""  && gender!=""
+            if(firstname!="" && lastname!="" && password!="" && confirmpassword!=""  && gender!=""
         && email!=""  && phone!=""  && address!=""  && postalcode!=""){
             if(password == confirmpassword)
             {
@@ -106,6 +99,7 @@
 				success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
+                        alert('User Successfully Registered');
 						$('#register_form').find('input:text').val('');
 						$("#success").show();
 						$('#success').html('Registration successful !');			
@@ -124,13 +118,14 @@
             }
             else
             {
-                alert('Passwords have to be the same');
+                alert('Passwords dont match');
             }
 			
 		}
 		else{
 			alert('Please fill all the field !');
 		}
+		
 	});
 </script>
 </body>

@@ -1,6 +1,3 @@
-# NGSI Junior Developer Test
-This is a junior skill test for junior developers. 
-
 ## Kurulum
 - Öncelikle projeyi çalıştırabilmek için "deneme.sql" adlı database scriptini kendi databasenizde çalıştırmalısınız daha sonra "db.php" dosyasındaki verileri
 kendi database bilgilerinizle doldurmalısınız.
