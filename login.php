@@ -1,50 +1,12 @@
-<?php session_start();
-
-    require "db.php";
-
-    if (isset($_POST['login'])) {
-        
-        $email = $_POST['email'] ? $_POST['email'] : '';
-        $password = $_POST['password'] ? $_POST['password'] : '';
-
-        if($email != "" && $password != "")
-        {
-            $login = $db->prepare("SELECT * FROM users WHERE email='$email' AND pass= '$password'");
-            $login->execute();
-            $result = $login->fetchAll();  
-            //print_r("result: ".$result);
-
-
-            
-            if(($result[0]['email'] == $email) && ($result[0]['pass'] == $password))
-            {
-
-                $_SESSION['email']=$email;
-                $_SESSION['id']=$result[0]['id'];
-                $msg="<span style='color:green'>Success</span>";
-                header("Location:mainpage.php");
-                exit;
-
-            }
-            else
-            {
-                $msg="<span style='color:red'>Username or Password is incorrect</span>";
-            }
-        }
-        else
-        {
-            $msg="<span style='color:red'>Please fill up all inputs</span>";
-        }
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
   <title>NGSI - Registration Form Test</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="./style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -55,34 +17,60 @@
         <form method="post" class="form">
             <div class="inputfield">
                 <label>Email Address</label>
-                <input type="text" class="input" name="email">
+                <input type="text" class="input" id="email" name="email">
             </div> 
             <div class="inputfield">
                 <label>Password</label>
-                <input type="password" class="input" name="password">
+                <input type="password" class="input" id="password" name="password">
             </div>  
             <div class="inputfield">
-            <input type="submit" value="Login" class="btn" id="login" name="login">
-            </div>
-            <div><?php echo $msg; ?></div>
+            <input type="submit" value="Login" class="btn" id="login" name="login"></div>
+            <a href="register.php"><div class="inputfield"><input value="Register" class="btn" id="register" name="register"></div></a>
+            
         </form>
+        </div>
+            
+            <div><?php echo $msg; ?></div>
 </div>
-<!-- partial
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#register").on('click', function (){
-        var email = $("#email").val();
-        var password = $("#password").val();
-        console.log(email);
+<script>
 
-        if(email == "" || password == ""){
-            alert("please fill up all inputs");
-        }
-     
-    });
-});
+	$('#login').on('click', function() {
+        $("#login").attr("disabled", "disabled");
+		var email = $('#email').val();
+		var password = $('#password').val();
+		if(email!="" && password!="" ){
+			$.ajax({
+				url: "checkuser.php",
+				type: "POST",
+				data: {
+					type:2,
+					email: email,
+					password: password						
+				},
+				cache: false,
+				success: function(dataResult){
+					var dataResult = JSON.parse(dataResult);
+					if(dataResult.statusCode==200){
+						location.href = "mainpage.php";	
+                        $("#login").removeAttr("disabled");
+                        $("#success").show();
+						$('#success').html('Registration successful !'); 
+                        console.log("deneme");						
+					}
+					else if(dataResult.statusCode==201){
+                        console.log("hata");
+						$("#error").show();
+						$('#error').html('Invalid EmailId or Password !');
+					}
+					
+				}
+			});
+		}
+		else{
+			alert('Please fill all the field !');
+		}
+	});
+
 </script>
- -->
 </body>
 </html>

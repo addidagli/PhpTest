@@ -175,3 +175,12 @@ body{
     flex-direction: row;
   }
 }
+
+#secondbutton
+{
+		margin-top: 10px;
+}
+.form a
+{
+	 text-decoration: none;
+}
