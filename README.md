@@ -1,6 +1,6 @@
 ## Kayıt
-- Projeyi çalıştırdığınızda ilk karşılacağınız ekrandan register butonuna basarak ve tüm inputları doldurarak yeni bir kullanıcı oluşturabilirsiniz.
-Tüm inputları doldurmadığınızda, şifreler eşleşmediğinde ve var olan bir email ile kaydolmayı denediğinizde uyarı alacaksınız. Başarılı kayıt olduktan sonra
+- Projeyi çalıştırdığınızda ilk karşılacağınız ekrandan register butonuna tıklayarak ve tüm inputları doldurarak yeni bir kullanıcı oluşturabilirsiniz.
+Tüm inputları doldurmadığınızda, şifreler eşleşmediğinde veya olan bir email ile kaydolmayı denediğinizde uyarı alacaksınız. Başarılı kayıt olduktan sonra
 login butonuna basarak login ekranına geçebilirsiniz
 
 ##  Login
