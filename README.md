@@ -1,6 +1,10 @@
+## Kurulum
+- Öncelikle projeyi çalıştırabilmek için "deneme.sql" adlı database scriptini kendi databasenizde çalıştırmalısınız daha sonra "db.php" dosyasındaki verileri
+kendi database bilgilerinizle doldurmalısınız.
+
 ## Kayıt
 - Projeyi çalıştırdığınızda ilk karşılacağınız ekrandan register butonuna tıklayarak ve tüm inputları doldurarak yeni bir kullanıcı oluşturabilirsiniz.
-Tüm inputları doldurmadığınızda, şifreler eşleşmediğinde veya olan bir email ile kaydolmayı denediğinizde uyarı alacaksınız. Başarılı kayıt olduktan sonra
+Tüm inputları doldurmadığınızda, şifreler eşleşmediğinde veya varolan bir email ile kaydolmayı denediğinizde uyarı alacaksınız. Başarılı kayıt olduktan sonra
 login butonuna basarak login ekranına geçebilirsiniz
 
 ##  Login
