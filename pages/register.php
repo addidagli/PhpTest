@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>NGSI - Registration Form Test</title>
-  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
-<div> <?php echo $msg; ?></div>
     <div class="title">
       NGSI Registration Form Skill Test
     </div>
@@ -88,7 +87,7 @@
             if(password == confirmpassword)
             {
                 $.ajax({
-				url: "adduser.php",
+				url: "../func/adduser.php",
 				type: "POST",
 				data: {
 					type: 1,
@@ -109,7 +108,7 @@
 					if(dataResult.statusCode==200){
 						$('#register_form').find('input:text').val('');
 						$("#success").show();
-						$('#success').html('Registration successful !');					
+						$('#success').html('Registration successful !');			
 					}
 					else if(dataResult.statusCode==201){
 						$("#error").show();

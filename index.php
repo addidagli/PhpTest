@@ -12,8 +12,8 @@
       NGSI Registration Form Skill Test
     </div>
         <div class="form">
-        <a href="login.php" style="text-decoration: none; text-align: center;"><div class="inputfield" id="firstbutton"><input value="Login" class="btn" id="login"></div></a>
-        <a href="register.php" style="text-decoration: none;"><div class="inputfield" id="secondbutton"><input value="Register" class="btn" id="register"></div></a>
+        <a href="pages/login.php" style="text-decoration: none; text-align: center;"><div class="inputfield" id="firstbutton"><input value="Login" class="btn" id="login"></div></a>
+        <a href="pages/register.php" style="text-decoration: none;"><div class="inputfield" id="secondbutton"><input value="Register" class="btn" id="register"></div></a>
         </div>
 </div>
 <!-- partial -->

@@ -1,5 +1,5 @@
 <?php session_start();
-    require "db.php";
+    require "../database/db.php";
     require "header.php";
 
     if($_SESSION['loggedIn'] != 1)

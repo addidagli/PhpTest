@@ -5,7 +5,7 @@
   <title>NGSI - Registration Form Test</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
@@ -40,7 +40,7 @@
 		var password = $('#password').val();
 		if(email!="" && password!="" ){
 			$.ajax({
-				url: "checkuser.php",
+				url: "../func/checkuser.php",
 				type: "POST",
 				data: {
 					type:2,
@@ -51,7 +51,7 @@
 				success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
-						location.href = "mainpage.php";	
+						location.href = "../pages/mainpage.php";	
                         $("#login").removeAttr("disabled");
                         $("#success").show();
 						$('#success').html('Registration successful !'); 
